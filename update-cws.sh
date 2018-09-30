@@ -87,3 +87,5 @@ fi
     -H "x-goog-api-version: 2" \
     -H "Content-Length: 0")
   echo -e "$publish_data"
+
+rm $zipfile
