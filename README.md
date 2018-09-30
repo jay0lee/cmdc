@@ -1,7 +1,7 @@
 <a target="_blank" href="https://chrome.google.com/webstore/detail/chrome-managed-data-clean/anfhmiaflneaeffhlmbcedfjakdlpleg"><img alt="Try it now" src="https://github.com/jay0lee/cros-info/raw/master/cws.png" title="Click here to install this sample from the Chrome Web Store"></img></a>
 
 # Chrome Managed Data Cleanup
-  Chrome Managed Data Cleanup (CMDC) is a Chrome extension which aids admins in bulk user Chrome data cleanup. How often have you told users to "delete your cache and cookies" in order to resolve browser issues? CMDC automates the cleanup process for your users so you don't need to walk them through the process.
+  Chrome Managed Data Cleanup (CMDC) is a Chrome extension which aids admins in bulk user Chrome data cleanup. How often have you told users to "delete your cache and cookies" in order to resolve browser issues? CMDC automates the cleanup process for your users.
 
 # How it works
   CMDC is meant to be force installed for managed Chrome users. You can force install extensions from the [Google admin console](https://support.google.com/chrome/a/answer/2657289#preinstall) or from managed [Windows](https://support.google.com/chrome/a/answer/7532015), [Macos](https://support.google.com/chrome/a/answer/7517624) and [Linux](https://support.google.com/chrome/a/answer/7517525) devices. CMDC does not work if it wasn't force installed.
