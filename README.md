@@ -76,3 +76,35 @@ Currently the policy has the following options. Note that JSON policy files do n
   }
 }
 ```
+# Example config files
+This example completely clears a users cache. Note that `general_data_remove_newer_than` does not apply to cache, all cache will be cleared no matter what the `general_data_remove_newer_than` value is.
+```
+{
+  "clear_general_data": {
+    "Value": true
+  },
+  "general_data_remove_newer_than": {
+    "Value": "0"
+  },
+  "general_data_to_clear": {
+    "Value": ["cache"]
+  }
+}
+```
+
+This example clears a user's Facebook cookies
+```
+{
+  "clear_cookies": {
+    "Value": true
+  },
+  "cookie_patterns_to_clear": {
+    "Value":
+      [
+        {
+          "domain": "facebook.com"
+        }
+      ]
+  }
+}
+```
