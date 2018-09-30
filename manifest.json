@@ -1,0 +1,27 @@
+{
+  "update_url": "https://clients2.google.com/service/update2/crx",
+  "manifest_version": 2,
+  "name": "Chrome Managed Data Cleanup",
+  "short_name": "CMDC",
+  "description": "Clear user data as needed.",
+  "version": "1.19",
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+    },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+    },
+  "minimum_chrome_version": "66",
+  "permissions": [
+    "browsingData",
+    "cookies",
+    "history",
+    "<all_urls>"
+    ],
+  "storage": {
+    "managed_schema": "schema.json"
+    }
+}

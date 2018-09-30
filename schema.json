@@ -1,0 +1,44 @@
+{
+  "type": "object",
+  "properties": {
+    "clear_general_data": {
+      "type": "boolean"
+    },
+    "clear_cookies": {
+      "type": "boolean"
+    },
+    "clear_history": {
+      "type": "boolean"
+    },
+    "general_data_to_clear": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "general_data_remove_newer_than": {
+      "type": "string"
+    },
+    "cookie_patterns_to_clear": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "url": { "type": "string" },
+          "name": { "type": "string" },
+          "domain": { "type": "string" },
+          "path": { "type": "string" },
+          "secure": { "type": "boolean" },
+          "session": { "type": "boolean" },
+          "storeId": { "type": "string" }
+        }
+      }
+    },
+    "history_searches_to_clear": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

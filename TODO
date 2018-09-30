@@ -1,0 +1,4 @@
+TODO:
+ - Consider time / alarm based data cleanup functionality.
+ - determine feasiblity of finer-grained cache cleanup.
+ - publish
