@@ -6,7 +6,7 @@ zipfilepath=$2
 zipfile=$appid.zip
 
 rm $zipfile
-zip -r $zipfile $zipfilepath
+zip -r $zipfile $zipfilepath -x *.git*
 
 # https://developers.google.com/identity/protocols/OAuth2InstalledApp#creatingcred
 client_id='311118430818-9btaroouc454mgp3pe4e5d60t5q0ok61.apps.googleusercontent.com'

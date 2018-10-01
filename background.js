@@ -73,7 +73,11 @@ function cleanData() {
           for ( var myit in historyItems ) {
             historyItem = historyItems[myit];
             console.log('removing history url ' + historyItem.url);
-            chrome.history.deleteUrl({"url": historyItem.url});
+            chrome.history.deleteUrl({"url": historyItem.url}, function () {
+              if (chrome.runtime.lastError) {
+                console.log('Oops! ' + chrome.runtime.lastError.message);
+              }
+            });
           };
         });
       };
