@@ -29,8 +29,9 @@ Currently the policy has the following options. Note that JSON policy files do n
   },
   
   # when removing general data, only remove data newer than this date. Dates are specified as milliseconds
-  # since the Unix epoch (1970). If you have trouble counting that high, use https://currentmillis.com/ to figure out
-  # a date. Noe that this setting does not apply when clearing cache. All cache will always be removed. Some samples dates:
+  # since the Unix epoch (1970). If you have trouble counting that high, use https://currentmillis.com/
+  # to figure out a date. Noe that this setting does not apply when clearing cache. All cache will always
+  # be removed. Some samples dates:
   # 1535817600000 - Sept 1, 2018
   # 1145718000000 - Apr 22, 2006
   "general_data_remove_newer_than": {
