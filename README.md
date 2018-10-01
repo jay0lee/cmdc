@@ -46,8 +46,8 @@ Currently the policy has the following options. Note that JSON policy files do n
     "pluginData", "serviceWorkers", "webSQL"]
   },
   
-  # Cookies that will be removed. The extension will search for cookies that match each pattern and remove them.
-  # See pattern details at https://developer.chrome.com/extensions/cookies#method-getAll
+  # Cookies that will be removed. The extension will search for cookies that match each pattern and
+  # remove them. See pattern details at https://developer.chrome.com/extensions/cookies#method-getAll
   "cookie_patterns_to_clear": {
     "Value":
       [
