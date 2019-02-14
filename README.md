@@ -8,8 +8,8 @@
 
   After force installing the extension, you need to set policy for the extension. The policy tells the extension what data you wish to cleanup. It's recommended that you figure out the *minimal* amount of data that needs to be cleaned up. For example, the extension could fix your user's problem by deleting all of their cookies but losing all their web settings and logins will annoy your users, you can also fix the problem by only deleting the specific problematic cookie from one website. It's best to try deleting browser data for a few test users interactively to determine exactly what data you need to cleanup to solve the issue.
   
-  The extension will clear user data based on current policy settings on extension install and then again any time it detects the extension policy has been updated / changed. Outside of these times, the extension should be inactive and not using any system resources. This also means the extension will only clear user data once after each extension policy change.
-
+  The extension will clear user data based on current policy settings on extension install and then again any time it detects the extension policy has been updated / changed. Outside of these times, the extension should be inactive and not using any system resources.
+  
 # Policy config file format
 Currently the policy has the following options. Note that JSON policy files do not allow comments, remove any # lines in the file before setting the policy. You may also want to use an online JSON format validator like https://jsonlint.com/ to make sure you didn't mess up the syntax.
 
