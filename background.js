@@ -46,7 +46,19 @@ function cleanData() {
       console.log(DataTypeSet);
       chrome.browsingData.remove(RemovalTypes, DataTypeSet, function() {
         if (chrome.runtime.lastError) {
-          console.log('ERROR: '+chrome.runtime.lastError.message);
+          var myErr = chrome.runtime.lastError.message;
+          if (myErr == 'Browsing history and downloads are not permitted to be removed.') {
+            console.log('ERROR: admin policy does not permit removal of history or downloads, skipping them.');
+            delete DataTypeSet.history;
+            delete DataTypeSet.downloads;
+            chrome.browsingData.remove(RemovalTypes, DataTypeSet, function() {
+              if (chrome.runtime.lastError) {
+                console.log('ERROR: '+chrome.runtime.lastError.message);
+              }
+            });
+          } else {
+            console.log('ERROR: '+myerr);
+          }
         } else {    
           console.log("SUCCESS: cleared general data.");
         }
@@ -75,7 +87,11 @@ function cleanData() {
             console.log('deleting cookie: ');
             console.log(details);
             chrome.cookies.remove(details, function (dets) {
-              console.log('removed cookie ' + dets.name + ' for ' + dets.url);
+              if (chrome.runtime.lastError) {
+                console.log('ERROR: ' + chrome.runtime.lastError.message);
+              } else {
+                console.log('removed cookie ' + dets.name + ' for ' + dets.url);
+              }
             });
           };
         });
@@ -93,7 +109,7 @@ function cleanData() {
             console.log('removing history url ' + historyItem.url);
             chrome.history.deleteUrl({"url": historyItem.url}, function () {
               if (chrome.runtime.lastError) {
-                console.log('Oops! ' + chrome.runtime.lastError.message);
+                console.log('ERROR: ' + chrome.runtime.lastError.message);
               }
             });
           };
