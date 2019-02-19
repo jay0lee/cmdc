@@ -8,7 +8,7 @@ chrome.management.getSelf(function (exinfo) {
 });
 
 chrome.runtime.onInstalled.addListener(function (details) {
-  if ( details.reason === 'installed' ) {
+  if ( details.reason === 'installed' || details.reason === 'install' ) {
     console.log('detected extension installed, running data cleanup.');
     cleanData();
   } else {
@@ -31,7 +31,7 @@ function cleanData() {
         "originTypes": { "unprotectedWeb": true }
       };
       var DataTypeSet = {};
-      var chrome_version = ParseInt(/Chrome\/([0-9]+)/.exec(navigator.userAgent)[1]);
+      var chrome_version = parseInt(/Chrome\/([0-9]+)/.exec(navigator.userAgent)[1], 10);
       for (var myindex in storage_items.general_data_to_clear) {
         element = storage_items.general_data_to_clear[myindex];
         if (element == 'cacheStorage' && chrome_version < 72) {
@@ -45,7 +45,11 @@ function cleanData() {
       console.log('DataTypeSet: ');
       console.log(DataTypeSet);
       chrome.browsingData.remove(RemovalTypes, DataTypeSet, function() {
-        console.log("cleared general data!");
+        if (chrome.runtime.lastError) {
+          console.log('ERROR: '+chrome.runtime.lastError.message);
+        } else {    
+          console.log("SUCCESS: cleared general data.");
+        }
       });
     } else {
       console.log('general data clearing disabled');

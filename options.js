@@ -12,7 +12,7 @@ function gen_policy() {
         return;
       }
       remove_newer_than = remove_newer_than * 1000;
-      policy.general_data_remove_newer_than = {'Value': remove_newer_than};
+      policy.general_data_remove_newer_than = {'Value': remove_newer_than.toString()};
       general_types = getElementsStartsWithId('general_type_');
       gen_types_enabled = [];
       for (var i = 0; i < general_types.length; i++) {
