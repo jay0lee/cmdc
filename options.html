@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chrome Managed Data Cleanup Policy Generation</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" href="flatpickr.min.css">
+  <script src="flatpickr.js"></script>
+</head>
+<body>
+
+	<input type="checkbox" id="clear_general_data"> Clear general data<br>
+Remove general data newer than <input type="text" size="60" id="general_data_remove_newer_than" placeholder="date/time" data-input><br>
+<script src="datepick.js"></script>
+General data types to clear:<br>
+<table>
+	<tr><td><input type="checkbox" disabled id="general_type_appcache">Website appcache</td>
+	    <td><input type="checkbox" disabled id="general_type_cache">Browser cache</td>
+	    <td><input type="checkbox" disabled id="general_type_cacheStorage">Cache Storage</td>
+	</tr><tr>
+            <td><input type="checkbox" disabled id="general_type_cookies">Cookies</td>
+	    <td><input type="checkbox" disabled id="general_type_downloads">Downloads</td>
+	    <td><input type="checkbox" disabled id="general_type_fileSystems">File Systems</td>
+	</tr><tr>
+	    <td><input type="checkbox" disabled id="general_type_formData">Form Data</td>
+	    <td><input type="checkbox" disabled id="general_type_history">History</td>
+	    <td><input type="checkbox" disabled id="general_type_indexedDB">IndexDB</td>
+	</tr><tr>
+	    <td><input type="checkbox" disabled id="general_type_localStorage">Local Storage</td>
+	    <td><input type="checkbox" disabled id="general_type_serverBoundCertificates">Server-bound Certificates</td>
+	    <td><input type="checkbox" disabled id="general_type_passwords">Passwords</td>
+	</tr><tr>
+	    <td><input type="checkbox" disabled id="general_type_pluginData">Plugin Data</td>
+	    <td><input type="checkbox" disabled id="general_type_serviceWorkers">Service Workers</td>
+	    <td><input type="checkbox" disabled id="general_type_webSQL">Web SQL</td>
+	</tr>
+</table><br>
+
+<input type="checkbox" id="clear_cookies"> Clear specific cookies<br>
+Remove cookies with attributes:
+<div id="cookies_patterns">
+	URL: <input type="textbox" disabled id="cookies_URL_1"><br>
+        Name: <input type="textbox" disabled id="cookies_Name_1"><br>
+	Domain: <input type="textbox" disabled id="cookies_Domain_1"><br>
+	Path: <input type="textbox" disabled id="cookies_Path_1"><br>
+	<br>
+</div>
+<button id="add_cookie_pattern" disabled value="Add">Add</button><br><br>
+
+<input type="checkbox" id="clear_history"> Clear specific history<br>
+Remove history with URL or page name containing:<br>
+<div id="history_textboxen">
+	<input type="textbox" disabled id="history_textbox_1"><br>
+</div>
+<button id="add_history_textbox" disabled value="Add">Add</button><br><br>
+
+<button id="dlpolicy">Download Policy</button>
+
+<script src="options.js?"></script>
+</body>
+</html>

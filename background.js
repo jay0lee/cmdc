@@ -1,3 +1,12 @@
+var is_managed;
+chrome.management.getSelf(function (exinfo) {
+  if ( exinfo.installType == 'admin' ) {
+    is_managed = true;
+  } else {
+      is_managed = false;
+  }
+});
+
 chrome.runtime.onInstalled.addListener(function (details) {
   if ( details.reason === 'installed' ) {
     console.log('detected extension installed, running data cleanup.');
@@ -22,8 +31,13 @@ function cleanData() {
         "originTypes": { "unprotectedWeb": true }
       };
       var DataTypeSet = {};
+      var chrome_version = ParseInt(/Chrome\/([0-9]+)/.exec(navigator.userAgent)[1]);
       for (var myindex in storage_items.general_data_to_clear) {
         element = storage_items.general_data_to_clear[myindex];
+        if (element == 'cacheStorage' && chrome_version < 72) {
+          console.log('skipping cacheStorage element for Chrome version < 72');
+          continue;
+        }
         DataTypeSet[element] = true;
       }
       console.log('RemovalTypes: ');
