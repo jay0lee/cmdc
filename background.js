@@ -69,7 +69,7 @@ function cleanData() {
     if ( storage_items.clear_cookies ) {
       for (var mycp in storage_items.cookie_patterns_to_clear) {
         var pattern = storage_items.cookie_patterns_to_clear[mycp];
-        pattern.storeId = 0; // https://github.com/googlearchive/chromeos_saml_apps/blob/master/src/background.js#L42
+        pattern.storeId = "0"; // https://github.com/googlearchive/chromeos_saml_apps/blob/master/src/background.js#L42
         console.log('pattern:');
         console.log(pattern);
         chrome.cookies.getAll(pattern, function (cookies) {
